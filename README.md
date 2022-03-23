@@ -3,6 +3,7 @@
 A little ASCII calendar for the terminal.<br />
 <br /><br />
 Simply compile it and execute it:<br />
-```bash
+
+```console
 gcc main.c calendar.c -o duckcalendar
 ```

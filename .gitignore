@@ -1,6 +1,6 @@
 #ignore executables
 *.exe
-.gitignore
+
 
 #ignore directory
 /bin

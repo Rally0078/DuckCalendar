@@ -1,7 +1,0 @@
-#ignore executables
-*.exe
-
-
-#ignore directory
-/bin
-/.vscode

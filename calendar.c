@@ -24,6 +24,8 @@ int print_calendar()
 
     int mod_current_date = (local_now->tm_mday - 1) % 7;
     int day_of_start = local_now->tm_wday - mod_current_date;
+	if(day_of_start<0)
+		day_of_start = day_of_start+7;
     int crossed_flag = 0;
 
     printf("%19s %d\n", months[local_now->tm_mon], local_now->tm_year + 1900);

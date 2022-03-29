@@ -28,6 +28,19 @@ int print_calendar()
 		day_of_start = day_of_start+7;		//if day_of_start is negative, do magic modular arithmetic
     int crossed_flag = 0;
 
+	int month_days[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    int no_of_days;
+    if(local_now->tm_mon == 1)
+    {
+            if((local_now->tm_year+1900)%400==0)
+                no_of_days = month_days[local_now->tm_mon]+1;
+            else if((local_now->tm_year+1900)%100 == 0)
+                no_of_days = month_days[local_now->tm_mon];
+            else if((local_now->tm_year+1900)%4 == 0)
+                no_of_days = month_days[local_now->tm_mon]+1;
+    }
+    no_of_days = no_of_days = month_days[local_now->tm_mon];
+
     printf("%19s %d\n", months[local_now->tm_mon], local_now->tm_year + 1900);
     for (int i = 0; i < 39; i++)
         printf("=");
@@ -44,7 +57,7 @@ int print_calendar()
 	//Print the calendar itself with spaces infront of the first date of the month
     for (int i = 0; i < day_of_start; i++)
         printf("%5s", "");
-    for (int i = 1; i <= 31; i++)
+    for (int i = 1; i <= no_of_days; i++)
     {
 
         if (i == local_now->tm_mday)

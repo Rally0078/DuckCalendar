@@ -40,7 +40,7 @@ int print_calendar()
                 no_of_days = month_days[local_now->tm_mon]+1;
     }
     no_of_days = no_of_days = month_days[local_now->tm_mon];
-
+    printf("\n");
     printf("%19s %d\n", months[local_now->tm_mon], local_now->tm_year + 1900);
     for (int i = 0; i < 39; i++)
         printf("=");
@@ -83,6 +83,6 @@ int print_calendar()
     printf("\n");
     for (int i = 0; i < 39; i++)
         printf("=");
-    printf("\n");
+    printf("\n\n");
     return 0;
 }

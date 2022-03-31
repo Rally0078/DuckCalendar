@@ -62,8 +62,11 @@ int print_calendar()
 
         if (i == local_now->tm_mday)
         {
-            printf("  |%d|", i);
-            crossed_flag = 1;
+            if(i+day_of_start <=6)
+				printf("   |%d|", i);
+			else
+				printf("  |%d|", i);
+			crossed_flag = 1;
         }
         else if (crossed_flag == 1)
         {

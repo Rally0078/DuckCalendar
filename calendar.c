@@ -62,15 +62,15 @@ int print_calendar()
 
         if (i == local_now->tm_mday)
         {
-            if(i+day_of_start <=13)
-				printf("   |%d|", i);
-			else
-				printf("  |%d|", i);
+            if(i<=9)
+                printf("  | %d|", i);
+            else           	
+                printf("  |%d|", i);
 			crossed_flag = 1;
         }
         else if (crossed_flag == 1)
         {
-            if(i<=9)
+            if(day_of_start == 0)
                 printf("%5d",i);
             else
                 printf("%4d", i);

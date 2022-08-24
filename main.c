@@ -5,9 +5,9 @@ int main(int argc, char* argv[])
   char current_date_time[30];
   
   int status = get_time_str(current_date_time);
-  if (status == -1)
+  if (status)
   {
-    printf("\nError getting local time and date! Exiting...\n");
+    fprintf(stderr, "\nError getting local time and date! Exiting...\n");
     return -1;
   }
   printf("\n");

@@ -9,9 +9,9 @@ int get_time_str(char *time_str)
     time_raw = time(&time_raw);
     struct tm *local_time;
     local_time = localtime(&time_raw);
-    int s = asctime_s(time_str, 30, local_time);
-    if(s)
-        return s;
+    size_t s = strftime(time_str, 30, "%a %b %d %H:%M:%S %Y", local_time);
+    if(!s)
+        return -1;
     return 0;
 }
 

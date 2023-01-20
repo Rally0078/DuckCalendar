@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 
-int get_time_str(char*);
+int get_time_str(char*, int, char**);
 int print_calendar();
 
 #endif

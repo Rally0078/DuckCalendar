@@ -4,7 +4,7 @@ int main(int argc, char* argv[])
 {
   char current_date_time[30];
   
-  int status = get_time_str(current_date_time);
+  int status = get_time_str(current_date_time, argc, argv);
   if (status)
   {
     fprintf(stderr, "\nError getting local time and date! Exiting...\n");

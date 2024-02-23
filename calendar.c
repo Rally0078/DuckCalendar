@@ -3,13 +3,23 @@
 char *days[] = {"Sun", "Mon", "Tue", "Wed","Thu","Fri","Sat"};
 char *months[] = {"January", "February","March","April","May","June","July","August","September","October","November","December"};
 
-int get_time_str(char *time_str)
+int get_time_str(char *time_str, int argc, char* argv[])
 {
     time_t time_raw;
     time_raw = time(&time_raw);
     struct tm *local_time;
+    size_t s;
     local_time = localtime(&time_raw);
-    size_t s = strftime(time_str, 30, "%a %b %d %H:%M:%S %Y", local_time);
+    char format_24[] = "%a %b %d %H:%M:%S %Y";
+    char format_12[] = "%a %b %d %I:%M:%S %p %Y";
+    if(argc > 1)
+    	for(int i = 1; i < argc; i++)
+	{
+	   if(!strcmp("-12",argv[i]))
+	      s = strftime(time_str, 30, format_12, local_time);
+	}
+    else
+        s = strftime(time_str, 30, format_24, local_time);
     if(!s)
         return -1;
     return 0;

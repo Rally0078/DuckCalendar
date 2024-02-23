@@ -14,7 +14,21 @@ int get_time_str(char *time_str)
         return -1;
     return 0;
 }
-
+int isleapYear(int year)
+{
+    if (year %4 ==0)
+    {
+        if(year %100 == 0)
+            if (year % 400 == 0)
+                return 29;
+            else
+                return 28;
+        else
+            return 29;
+    }
+    else
+        return 28;
+}
 int print_calendar()
 {
     time_t time_now;
@@ -29,6 +43,7 @@ int print_calendar()
     int crossed_flag = 0;
 
 	int month_days[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    month_days[1] = isleapYear(local_now->tm_year + 1900);
     int no_of_days;
     if(local_now->tm_mon == 1)
     {

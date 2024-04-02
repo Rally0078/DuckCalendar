@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-  char current_date_time[30];
+  char current_date_time[38];
   
   int status = get_time_str(current_date_time, argc, argv);
   if (status)

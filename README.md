@@ -7,3 +7,6 @@ Simply compile it and execute it:<br />
 ```console
 gcc main.c calendar.c -o duckcalendar
 ```
+## Todo:
+- Add proper argument parsing: https://www.gnu.org/software/libc/manual/html_node/Argp.html
+- Refactor code
